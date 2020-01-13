@@ -43,6 +43,8 @@ do {
 
 if let dataLoaded = try? loadData(path: playerDataPath) {
     print("Data fetch good")
+} else {
+    print("Data fetch bad")
 }
 
 // Propagating errors
