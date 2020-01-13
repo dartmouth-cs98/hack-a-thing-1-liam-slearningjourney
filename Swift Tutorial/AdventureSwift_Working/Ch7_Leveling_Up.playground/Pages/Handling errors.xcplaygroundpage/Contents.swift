@@ -13,13 +13,14 @@
  
  */
 // Test code
-enum DataError: Error {
+enum DataError: Error{
     case EmptyPath
     case InvalidPath
 }
 
+let playerDataPath = "/example.text"
 
-func loadData(path: String) throws {
+func loadData(path: String) throws -> Bool? {
     guard path.contains("/") else {
         throw DataError.InvalidPath
     }
@@ -27,9 +28,36 @@ func loadData(path: String) throws {
     guard !path.isEmpty else {
         throw DataError.EmptyPath
     }
+    return true
 }
 
 // Do-Catch statements
+do {
+    try loadData(path: playerDataPath)
+    print("Data fetch success")
+} catch is DataError {
+    print("Invalid or empty path detected")
+} catch {
+    print("Unknown error")
+}
 
+if let dataLoaded = try? loadData(path: playerDataPath) {
+    print("Data fetch good")
+}
 
 // Propagating errors
+func propagateDataError() throws {
+    try loadData(path: playerDataPath)
+}
+
+do {
+    try propagateDataError()
+    print("Data fetch success")
+} catch DataError.EmptyPath {
+    print("Empty path")
+} catch DataError.InvalidPath {
+    print("Invalid path")
+} catch {
+    print("Unknown Error")
+}
+

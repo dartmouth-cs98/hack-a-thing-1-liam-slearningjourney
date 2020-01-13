@@ -15,19 +15,40 @@
  [Previous Topic](@previous)
  
  */
-// 1
-
-// 2
+// 1, 2, 4
+class Item {
+    var name: String
+    var price: Double
+    var secret: BonusEffect?
+    
+    init(name: String, price: Double) {
+        self.name = name
+        self.price = price
+    }
+}
 
 // 3
+struct BonusEffect {
+    var bonus: Int
+}
 
-// 4
-
-// 5
-
-// 6
+// 5, 6
+class Inventory {
+    var storedItems: [Item]
+    
+    init(items: [Item]) {
+        storedItems = items
+    }
+}
 
 // 7
+var bonus1 = BonusEffect(bonus: 10)
+var item1 = Item(name: "hammer", price: 100)
+var item2 = Item(name: "wand", price: 300)
+item2.secret = bonus1
 
 // 8
-
+var inventory = Inventory(items: [item1, item2])
+if let item2Bonus = inventory.storedItems[1].secret?.bonus {
+    print("The bonus of \(inventory.storedItems[1].name) is \(item2Bonus)")
+}
