@@ -13,3 +13,7 @@ Through the fantasy video game storyline, I learned about Swift's language conce
 
 ### What Didn't Work:
 Many of the final challenges at the chapter ends did not work until I checked my incorrect code with the solutions given in the video.
+
+### Tutorials Followed (Roughly)
+https://www.linkedin.com/learning/swift-5-essential-training/next-steps?u=2167153
+https://www.linkedin.com/learning/building-your-first-ios-13-app
